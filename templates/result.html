@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h2>Shortest Path Result</h2>
+    <form method="POST" action="/calculate">
+        <label for="source">Source Node</label>
+        <input type="text" name="source" required><br><br>
+        <label for="destination">Destination Node</label>
+        <input type="text" name="destination" required><br><br>
+        <div class="calculate"><input type="submit" value="Calculate Shortest Path"></div>
+    </form>
+
+    {% if path %}
+    <h3>Shortest Path:</h3>
+    <ul>
+        {% for node in path %}
+        <li>{{ node }}</li>
+        {% endfor %}
+    </ul>
+    <p>Cost: {{ cost }}</p>
+    {% endif %}
+{% endblock %}

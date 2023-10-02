@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<body>
+    <h2>NetDzn</h2>
+    <form method="POST">
+        <label for="node">Node</label>
+        <input type="text" name="node" required><br><br>
+        <label for="edge">Connected Nodes (separate with comma)</label>
+        <input type="text" name="edge"><br><br>
+        <label for="weight">Distance (separate with comma)</label>
+        <input type="text" name="weight"><br><br>
+        <input type="submit" value="Add Node">
+    </form>
+    <form method="POST" action="/Done">
+        <button type="submit">Done</button>
+    </form>
+<br>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+{% endblock %}

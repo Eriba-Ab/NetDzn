@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetDzn</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background-color: #f0f0f0;
+            margin: 50;
+            padding: 50;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: xx-large;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(to bottom, #DAE8FC, #FFFFFF);
+            border: 1px solid #ccc;
+            border-radius: 45px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-family: 'Comic Sans MS', cursive;
+        }
+
+        input[name="node"] {
+            background-color: #cbabda;
+            color: #000000;
+            max-width: 375px;
+        }
+
+        input[name="edge"] {
+            background-color: #FFF2CC;
+            max-width: 375px;
+        }
+
+        input[name="weight"] {
+            background-color: #F8CECC;
+            max-width: 375px;
+        }
+
+        .class{
+            align-content: center;
+        }
+        
+        input[type="submit"] {
+            font-family: 'Comic Sans MS', cursive;
+            width: 200px;
+            background-color: #60A917;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 5px 8px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="submit"]:hover {
+            transition-duration: 0.5s;
+            width: 400px;
+            background-color: #008A00;
+        }
+
+        button[type="submit"] {
+            font-family: 'Comic Sans MS', cursive;
+            width: 200px;
+            background-color: #FFBF00;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 5px 8px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        button[type="submit"]:hover {
+            transition-duration: 1s;
+            width: 400px;
+            background-color: #73ff00;
+        }
+
+        input[name="source"] {
+            background-color: #FFF2CC;
+            color: #000000;
+            max-width: 375px;
+        }
+
+        input[name="destination"] {
+            background-color: #FFF2CC;
+            max-width: 375px;
+        }
+        .class {
+            font-family: 'Comic Sans MS', cursive;
+            width: 200px;
+            background-color: #60A917;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 5px 8px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .class:hover {
+            transition-duration: 0.5s;
+            width: 400px;
+            background-color: #008A00;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <hr>
+        <p>&copy;Einstein 2023</p>
+    </footer>
+</body>
+</html>
